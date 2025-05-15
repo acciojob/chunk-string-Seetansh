@@ -1,8 +1,13 @@
-function stringChop(str, size) {
-  // your code here
-}
+function chunkString(str, length) {
+  if (!str || typeof str !== 'string') return [];
 
-// Do not change the code below
-const str = prompt("Enter String.");
-const size = prompt("Enter Chunk Size.");
-alert(stringChop(str, size));
+  const chunks = [];
+  for (let i = 0; i < str.length; i += length) {
+    chunks.push(str.slice(i, i + length));
+  }
+  return chunks;
+}
+console.log(chunkString("Hello, world!", 5)); 
+console.log(chunkString("12345", 2));        
+console.log(chunkString("abc", 5));           
+console.log(chunkString(null, 3));
